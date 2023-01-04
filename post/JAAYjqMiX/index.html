@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>VPN不完全避雷指南（国外向） | Buildの幻想乡</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://build233.github.io/media/styles/fontawesome.min.css">
+<link rel="shortcut icon" href="https://build233.github.io/favicon.ico?v=1672798743468">
+<link rel="stylesheet" href="https://build233.github.io/styles/main.css">
+
+
+  
+    <link href="https://cdn.bootcdn.net/ajax/libs/gitalk/1.6.2/gitalk.min.css" rel="stylesheet">
+  
+
+  
+
+
+<link href="https://cdn.bootcdn.net/ajax/libs/animate.css/4.1.0/animate.min.css" rel="stylesheet">
+<style>
+:root {
+  --animate-duration: 800ms;
+}
+</style>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.min.js"></script>
+
+
+
+    <meta name="description" content="前言
+隐私权是一项基本人权。
+你不应该被互联网浏览；你不应该因为信息本地化而无法看到外面世界的样子；你不应该成为不安全的公共WiFi黑客窃取个人信息的受害者；你不应该遭到政府偷窥；你不应该受运营商与在线内容提供商PY交易后不中立的流量分配任..." />
+    <meta name="keywords" content="" />
+    
+      <link href="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.11.1/katex.min.css" rel="stylesheet">
+      <script src="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.11.1/katex.min.js"></script>
+    
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container animate__animated animate__fadeInLeft">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://build233.github.io">
+        <img src="https://build233.github.io/images/avatar.png?v=1672798743468" class="site-logo">
+        <h1 class="site-title">Buildの幻想乡</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container animate__animated animate__flipInX">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      <big>应是天仙狂醉，乱把白云揉碎</big>
+    </div>
+    <div class="site-footer">
+      ICP备案：Build不知道哦 | <a class="rss" href="https://build233.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container animate__animated animate__fadeInUp">
+          <div class="post-detail">
+            <h2 class="post-title">VPN不完全避雷指南（国外向）</h2>
+            <div class="post-date">2022-12-17&emsp;&emsp;14761 字 &emsp;阅读时间 54 分钟</div>
+            
+            <div class="post-content" v-pre>
+              <p>前言<br>
+隐私权是一项基本人权。</p>
+<p>你不应该被互联网浏览；你不应该因为信息本地化而无法看到外面世界的样子；你不应该成为不安全的公共WiFi黑客窃取个人信息的受害者；你不应该遭到政府偷窥；你不应该受运营商与在线内容提供商PY交易后不中立的流量分配任意摆布。</p>
+<p>选择一款适合自己的VPN在这个数字时代是一项基本需求。把资讯自由还给自己，把网络中立还给自己。</p>
+<p>本指南包含了市面上大多数有名的VPN服务，可能有少量遗漏与错误，欢迎在本文底部留言讨论。</p>
+<p>基本的评分策略<br>
+作者思维独立性强但评分比较主观，比如NordVPN就因为Windows客户端网页登录而给直接降档次。每项VPN的严重缺点、可改善之处与优点均与其售价、服务器规模和定位相关。<br>
+推荐指数满分10分。<br>
+超过3年期的订阅套餐再便宜也不在价格考虑范围。<br>
+来自别的评测者发现的问题会给出链接，对于流媒体解锁的现状请尽可能参考最新评测。<br>
+因时间有限，第三方背书只提最近的一次。<br>
+官网无第三方站点视频（主要是YouTube）、tracker、cookie，或者不通过各类评测网站打广告的VPN定位偏向隐私与数据安全；其余月付高价，年付低价的通用VPN必须考虑流媒体解锁能力、服务器数量与速度等。<br>
+VPN相关专业术语及争论<br>
+KillSwitch<br>
+KillSwitch在工业上中文叫“紧急停止开关”，但在VPN业界的中文翻译并未统一。Surfshark翻译成“查杀开关”（很生硬的翻译腔），Private Internet Access翻译成“切断开关”，VPN Ranks网站一篇科普文章的中文翻译写作“阻止开关”。 它的本质是一种防火墙，只允许VPN隧道内通信，当VPN连线质量不佳意外中断时，能阻止对外流量进出，保障隐私。 VPN缺少了KillSwitch就相当于电热水器缺少了漏电保护，它的非0即1机制决定必须达到实时激活的水准才能保障安全。 KilSwitch分为基础，高级和永久几个层级。永久KillSwitch意味着只有VPN服务器和API的IP地址或域名在预设的白名单里，即使将VPN客户端关闭后也不会对外通信。高级KillSwitch是只要VPN客户端不彻底关闭或者完全登出账号，就算VPN处于未连接状态也不会对外通信。基础KillSwitch仅仅保护连接成功后与VPN服务器意外短线的情况，用户不幸手滑操作失误点了断开VPN时，以及切换服务器时从断开原本的连线到与新服务器握手的短暂间隔期将会暴露原始IP地址。 桌面端的KillSwitch可以融入进操作系统的防火墙，而iOS/Android的KillSwitch非常简陋，甚至有失效的报告。这也是为何不推荐追求极致数据安全、需要传输敏感数据的用户依赖移动端平台工作的原因。</p>
+<p>解锁流媒体 unblock streaming services<br>
+在线流媒体服务分为Netflix, HBO Max, Disney+, Amazon Prime Video等订阅制服务与BBC iPlayer等购买许可证制服务。因为地域版权限制，流媒体业务的提供商在积极封杀VPN的IP地址，若某个IP地址短时间内有多名用户登录，就有可能被认定为公共代理或VPN的IP地址而封杀。但是流媒体服务解锁是很多VPN的卖点之一，因此这种捉迷藏游戏将会持续下去。IPV6全面流行后，VPN的IP被识别的概率可能会大幅度降低。</p>
+<p>总部司法管辖地 headquarter jurisdiction<br>
+指实际负责运营VPN的公司（不是仅完成收购而放任独立运行的母公司）的注册地。是VPN界争议最大的问题之一。因斯诺登和维基解密爆料的种种内幕，结合英美联盟的历史，互联网逐渐有了“5眼国家要不得”、“9眼国家要不得”与“14眼国家要不得”的都市传说。</p>
+<p>“5眼”指英语系五眼联盟。“9眼”指在五眼联盟基础上增加丹麦、法国、荷兰、挪威四国，“14眼”再增加德国、比利时、意大利、西班牙、瑞典五国即十四国组成的SIGINT Seniors Europe。这也是不少知名VPN总部都在“离岸地”、“避税天堂”的原因，包括但不限于瑞士（中立国，独立于欧盟）、罗马尼亚（罗马尼亚机房都懂的，抗DMCA神器）、塞舌尔（不只是个旅游胜地）、巴拿马（巴拿马文件，嘻嘻）、英属维尔京群岛（只有双重犯罪且根据BVI法律会判一年刑期起步的事情，法院才会理睬来自外国的调查、司法协助请求）、和十四眼中“相对特立独行”的瑞典（海盗湾……）。</p>
+<p>但笔者认为不能被这些都市传说误导，十四眼本质是情报协作联盟，国际司法合作是不分十四眼内与十四眼外的，以“天高皇帝远”为目标去开办公司也得避开落后与缺乏人权与法制的化外之地，总不会有VPN公司把总部开到塔利班治下的阿富汗吧？笔者更倾向于相信Private Internet Access所解释的，“其他一些 VPN 公司声称，美国的 VPN‘妥协’了，因为与国家安全局或其他一些政府恶棍有秘密联系，这当然是无稽之谈。我们拥有严格的无日志政策，并且已（多次）在法庭上经受考验并得以证实——我们 100% 致力于维护和保障用户隐私。正是因为我们是一家美国公司，我们享有宪法保护，以防政府过度干预。我们为公司设在美国而自豪，这让我们能够获得所需的自由，为全世界的数字隐私和线上自由权利而奋斗。”</p>
+<p>VPN隐私实践 VPN privacy policy practice<br>
+好的VPN应该确保服务器端不记录各种可直接或间接识别用户唯一身份的日志。它们包含VPN服务器IP地址，用户原始IP地址，用户浏览网站或服务的IP地址或主机名，会话时间戳，会话时长，DNS解析记录。好的VPN需要在自己的服务器组中内建DNS，而不是依赖第三方的DNS服务器。虽然各家VPN几乎都声称自己没有日志，但实际的具体运行情况可以千差万别。</p>
+<p>VPN泄漏 VPN leakage<br>
+一种情况是VPN服务器或DNS服务器实际留下了日志。另一种情况是客户端自己出现了问题。由于系统青睐最近处DNS，本地运营商的DNS可能在VPN连接后仍然在解析。</p>
+<p>WebRTC是一种开源的浏览器内置的网络实时通讯协议，可能会VPN连接后依然通过原始IP地址与目标地址之间传输数据。VPN可以设置拆分隧道，同理操作系统可能有若干连接处于VPN之外，造成IP泄漏。以上泄漏都可以通过技术手段得到解决。</p>
+<p>支付隐私 payment privacy<br>
+毫无疑问，使用信用卡、借记卡或者PayPal、Apple Pay等在线钱包会留下每一笔交易的详细记录。</p>
+<p>很多人不想购买VPN的交易被银行等金融机构知道。他们选择加密货币或加密代币，第三方充值卡或VPN官方在线下商店售卖的激活码，或者直接向VPN提供商的指定地址邮寄现金。</p>
+<p>加密货币中公认隐私保障最好的是门罗币。但邮寄钞票的隐私远不如加密货币，因为寄信一般是要写实名的，目的地（VPN方提供的信箱）也是明牌，还会留下生物指纹；PaymentWall支持的Mint、NeoSurf等预付卡，各类游戏充值卡比如雷蛇金卡和各类商户比如星巴克的预付卡也可能后台留下具体的消费记录。</p>
+<p>协议 protocol<br>
+随着时代的发展，PPTP协议已经完全不符合安全需求，加密强度弱，跟明文差别不大。 L2TP/IPSec，IKEV2/IPSec，SSTP虽然安全，但闭源的特性决定了他们不会成为第一梯队的选择。 OpenVPN是安全VPN协议的金标准，源代码完全公开并得到专家们的肯定。但此协议的流量特征过于明显。树大招风的道理大家都懂，大街上开F1赛车的行为一定会引来注意的。尽管绝大多数国家和地区都没有对VPN进行系统性的封锁，但有的运营商会对UDP通过QoS优先级方式限速。为了骗过运营商、政府的DPI即深度流量包检测，通过各类混淆法让OpenVPN看上去更像普罗大众的日常流量——TCP与TLS，低调内敛，方能畅行无阻。辨别OpenVPN流量是否混淆的一种办法是通过Wireshark观察流量，未混淆时数据包类型显示为OpenVPN，混淆后则显示为普通的TCP或UDP。</p>
+<p>OpenVPN虽好，但复杂的几十万行源代码注定带来极限速度不快。小巧轻便的WireGuard应运而生。WireGuard同样开源，且原始码非常简单只有几千行，易于维护，留下的可攻击面远小于OpenVPN，默认走UDP高位端口，已经整合进Linux和Windows的系统内核中。但高速和高VPN隧道安全性的背后是对服务器端用户隐私性的一些忽略，VPN服务器端只允许部署静态IP地址，且会把对等节点的IP地址记录到至少下次重启，这将是对用户隐私的严重威胁。但好在不同的VPN供应商通过各种技术手段克服了WireGuard的弊病。只要VPN服务器设置得当，是不会有问题的。WireGuard也可以流量混淆或伪装。 SoftEther是日本筑波大学著名学术研究项目。它还有一个衍生品，由各地（主要是日韩）志愿者运行的免费VPN网络——VPNGate。SoftEther源代码是公开的，使用HTTPS作为传输隧道，流量特征与常规HTTPS连线无异。 有的VPN有自主研发协议，或者是OpenVPN和WireGuard的改进版，或者是完全的新协议。</p>
+<p>第三方背书与开源 3rd-party audit, open-source<br>
+为了让潜在和现有客户打消疑虑，VPN商家普遍在积极地寻求独立地第三方公司或机构前来进行高权限甚至完全权限测试，反馈发现地问题，并通过测试报告为VPN商家做公证，背书作证的内容主要包括服务 器无日志、服务器设施安全性、客户端安全性。</p>
+<p>作为VPN进阶功能，它们的实现均基于DNS规则库。由于规则库需要不断更新，因此不同家VPN的实际拦截效果差距较大，有拦截失败与错杀的情况。</p>
+<p>服务器部署与IP地址 VPN servers deployment and IP addresses<br>
+同时为多个会话服务的VPN服务器需要强大的硬件配置。一台分成多台用的VPS无论是性能还是安全性都不是VPN应该的选择，因此主流VPN都选用独立服务器（dedicated server或bare-metal server），且最好位于Tier 4级别的数据中心（多重冗余设计，保障99.995% uptime）。 服务器是“租用”还是“拥有”的争论，一直是不同VPN厂家互相口诛笔伐的方面。直接从ISP出身的VPN会说别家是第三方互联网资源，托管方式(co-located)自助搭建服务器的VPN也瞧不上仅仅向上游数据中心或云计算厂商租用服务器的VPN。</p>
+<p>但是笔者想说的是，上游厂商的服务器，IP地址不也是从ARIN，RIPE NCC，APNIC，LACNIC，AfriNIC几大区域注册管理机构处取得的吗？再往上想，就是ICANN管一切了。 大型VPN的可选择的一个“服务器节点”实际多数都是一个服务器集群，具备多个IP地址，IP动态分配，用户长时间连接时候有可能会自动重连中途更换IP。如果是同一个IP段还好，如果是不同的IP段，可能会被用户浏览的实际目的地服务器错误识别为变更地理位置而触发账户安全风控，影响使用体验。</p>
+<p>与之相反的是少数静态IP的服务器，每一个服务器节点只有一个IPV4和/或IPV6地址。但可能总负载能力相对较低。 有的VPN为用户提供额外付费的独享IP地址，一定程度能降低各种服务对共享IP地址的封锁与风控，但也牺牲了一定的隐私。 有的服务器IP地址与服务器物理位置不一样，称为广播IP。与其相对的是原生IP，即IP地址与服务器物理地址所在地一致。 绝大多数VPN的IP地址都属于商用网络的IP段，但有极少数VPN服务器有家用网络IP段的IP地址。</p>
+<p>各VPN具体评分<br>
+以笔者鸡蛋里挑骨头般严厉的找茬，市面上目前没有完美的产品。连接近完美的都没有。</p>
+<p>第一档 8分 瑕不掩瑜<br>
+Surfshark VPN<br>
+总部司法管辖地</p>
+<p>荷兰<br>
+严重缺陷</p>
+<p>连接之后无法连接本地IP地址（LAN），这意味着无法查看路由器后台和VNC远程桌面等。担心本地IP地址中间人攻击，可以加入NAT保护嘛。<br>
+Linux客户端还有些比较严重影响使用的bug。<br>
+存疑之处</p>
+<p>Surfshark公司与NordVPN母公司Nord Security已经合并。<br>
+Surfshark Search与DuckDuckGo的搜索结果到底有何区别？<br>
+可改善之处</p>
+<p>双重VPN服务器无法自选，只有固定的线路。<br>
+无IPV6。<br>
+第三方测试和背书不包含客户端的安全性，客户端亦未开源。<br>
+优点</p>
+<p>无限多台设备同时登录！而且分享是通过随机生成的代码，不用担心用户名密码被分享给的人盗取。<br>
+所有VPN服务器全内存运行，无硬盘。<br>
+德国Cure53在2021年通过对Surfshark服务器设施安全的背书。<br>
+稳定解锁流媒体。<br>
+提供数个静态IP服务器。<br>
+WireGuard通过服务器双重NAT解决隐私顾虑。<br>
+便宜（黑五+优惠码叠加后24+3个月套餐实际1.97美元/月）。<br>
+超过100个国家和地区拥有服务器（尽管很多都是广播IP）。<br>
+StackSocial上有低价的激活码（没有退款政策）。<br>
+推荐指数 8分，不适合需要连线局域网内设备的使用者。</p>
+<p>官网 https://surfshark.com/</p>
+<p>来自koreyoshi_re补充：surfshark，月费巨贵，年费巨便宜，看着是想让你上了车就下不来，超售嫌疑很大。之前买过一个月，部分节点测速缓慢（测速连 1M 都没有），注册时需要邮箱。</p>
+<p>ExpressVPN<br>
+总部司法管辖地</p>
+<p>英属维尔京群岛<br>
+严重缺陷</p>
+<p>KillSwitch只有基础的层级。<br>
+存疑之处</p>
+<p>收购其的母公司Kape Technologies手里已经有Private Internet Access、ExpressVPN、Zenmate、CyberGhost，这是要召唤神龙么？<br>
+一名前NSA雇员Daniel Gericke成为ExpressVPN的CIO。<br>
+副主席Harold Li来自香港特别行政区（不过人在新加坡？ ）。<br>
+可改善之处</p>
+<p>无IPV6。<br>
+无双重VPN功能。<br>
+iOS端无应用内KillSwitch，只能用系统自带的Always-on VPN功能。<br>
+价格稍贵（最低价99.99美元15个月）。<br>
+VPN服务器实时负载状况和在线人数不透明。<br>
+作为昂贵的VPN服务，总的IP地址池只有3000多个，意味着“万人轮”的IP地址被标记进abuse database的概率较大。<br>
+优点</p>
+<p>VPN服务器无永久存储、全内存运行（diskless sever，或者叫RAM-only server或RAM-disk server）模式的祖师爷。独有技术TrustedServer让所有服务器完整切换到最新的软体环境而不是分批升级保障服务器端安全，由第三方，世界四大会计师行之一的英国PwC独立检验并背书。<br>
+2017年土耳其警方物理带走了ExpressVPN土耳其服务器以调查俄罗斯驻土耳其大使被刺杀案也未能拿到日志，无日志运行也有2022年英国KPMG的最新背书。<br>
+芬兰的F-Secure为ExpressVPN的Windows客户端做了详细安全检测并背书。Mac OS与Linux客户端的安全检查与背书则由Cure53完成。<br>
+稳定解锁各种流媒体服务。<br>
+不走寻常路。别的厂家拥抱WireGuard的时候，ExpressVPN却自主研发出基于wolfSSL的Lightway协议，速度如火箭一样快，安全性通过独立第三方Cure53测试并背书，核心部分在Github公布源代码。<br>
+可以分出五组虚拟网卡，同时五个不同连线（甚至包括断网和不走VPN）的路由器原生GUI客户端并带有Killswitch和超快的Lightway协议。使用时可以分出一组断网（但可以与内网IP地址连通）把本设备临时放到断网组解决切换服务器时无永久KillSwitch的弊端。市面上最好的路由器非传统协议支持（路由器手动加载OpenVPN档案设置KillSwitch很麻烦），并推出官方硬件的Aircove Router。<br>
+94个国家和地区拥有服务器（尽管有些是广播IP），70%服务器已经万兆。<br>
+推荐指数 8分。</p>
+<p>官网 https://expressvpn.com</p>
+<p>Private Internet Access<br>
+总部司法管辖地</p>
+<p>美国<br>
+严重缺陷</p>
+<p>桌面版的高级切断开关是半永久KillSwitch，手滑点断开连接会断网，但不小心登出账号或关闭APP就失效，不过登出和退出的位置一般也不太容易轻易按到。 存疑之处<br>
+收购其的母公司Kape Technologies手里已经有Private Internet Access、ExpressVPN、Zenmate、CyberGhost，这是要召唤神龙么？<br>
+可改善之处</p>
+<p>无IPV6。<br>
+美国服务器广播IP太多，并不是真实的每个州都有服务器。<br>
+优点</p>
+<p>所有VPN服务器全内存运行，无硬盘。<br>
+除了独立第三方Deloitte Audit罗马尼亚分公司背书，还有多次法院的“背书”证明确实无日志。<br>
+所有支持系统的APP全部开源，原生Linux GUI客户端支持。<br>
+可以通过数个官方Shadowsocks服务器或用户自己搭建的本地代理做VPN的前置中转。<br>
+庞大的IP地址池，加上独享IP的库存总IP地址数是五位数。<br>
+官方支持并在加密货币支付教程中提到了使用临时邮箱注册。<br>
+稳定解锁大多数流媒体服务。<br>
+拆分隧道除了拆分App绕过VPN，还能设置IP地址绕过VPN。<br>
+StackSocial上有低价的激活码（没有退款政策）。<br>
+推荐指数 8分。</p>
+<p>官网 https://www.privateinternetaccess.com/</p>
+<p>VyprVPN<br>
+总部司法管辖地</p>
+<p>瑞士<br>
+存疑之处</p>
+<p>虽然总部位于瑞士，但工作处位于美国德州（尽管美国宪法保障通讯自由，联邦政府无权要求VPN记录日志）。 可改善之处<br>
+Linux只有CLI，没有GUI。<br>
+不支持加密货币支付。<br>
+流媒体解锁情况并不像官方宣称的那样好。<br>
+优点</p>
+<p>创始人Yokubaitis夫妇就是做ISP出身（Texas.Net，和现在的Data Foundry），完全拥有所有服务器控制权，并非从上游IDC厂商租用，VyprVPN的IP地址池拥有超过30万个IP地址，可能是全球IP地址最多的个人VPN服务，理论上对抗流媒体提供商“封锁”的IP储备非常丰富。<br>
+VPN业界内首个主动寻求第三方独立背书的无日志运行证明，背书方为美国Leviathan Security Group。<br>
+伪装VPN元数据的专有协议Chameleon在调试自由度不高的iOS端也能支持。<br>
+Windows与Android拥有应用拆分隧道，自主决定哪些程序不走VPN。<br>
+VPN服务器端已经开始部署流量混淆。<br>
+在部分DD-WRT路由器上支持自己的专有小程序，有Chameleon协议，市面上唯二的支持路由器运行自研协议的VPN之一（另一家为ExpressVPN）。<br>
+推荐指数 8分。如果担心VPN提供商对网络基础设施拥有不够彻底，就不要犹豫，选择VyprVPN就是了！</p>
+<p>官网 https://vyprvpn.com</p>
+<p>ProtonVPN<br>
+总部司法管辖地</p>
+<p>瑞士<br>
+存疑之处</p>
+<p>Proton聘用了著名产品服务评测写手，例如仍然供职于Proprivacy的作者Douglas Crawford为其写官方博客文章。<br>
+所有VPN服务器都是通过硬盘运转，尽管都做了全盘加密处理。<br>
+VPN客户端与ProtonMail同一个登录密码。<br>
+Debian/Ubuntu版Linux客户端在Pop!OS系统（基于Ubuntu）偶尔出现永久KillSwitch在长时杀掉VPN连接本身的问题，重新登录时候永久KillSwitch也会阻止登录本身，需要先关闭永久KillSwitch登录后再开启。<br>
+可改善之处</p>
+<p>Linux客户端只有OpenVPN UDP协议，且两步骤验证在Linux客户端形同虚设，直接靠密码就能登录。<br>
+ProtonVPN最新的伪装技术（stealth）仅可用于Android, iOS, MacOS三个系统。<br>
+Proton官方完全控制的SecureCore中转服务器（相当于双重VPN的入口）仅有瑞典、瑞士、冰岛三处节点，中转后速度有时会暴降，最后的出口服务器只能选择国家和地区不能选择国家和地区内具体地点。<br>
+只有黑五等促销期间年付价格才比较便宜，尤其是邮箱+VPN+存储+日历全家桶。<br>
+优点</p>
+<p>今年通过了独立第三方，波兰Securitum最新的服务器无日志安全检测并背书。<br>
+来自CERN与MIT的科学家们给世界带来的礼物，值得信赖。<br>
+所有系统的客户端均完全开源并通过独立第三方，奥地利SEC Consult安全评估并背书。<br>
+有永久KillSwitch，即使Daemon挂掉也能阻止数据流入流出。<br>
+业界第一个发现iOS的VPN会有数据泄漏在VPN隧道外并积极向苹果报告。<br>
+付费服务器保障解锁流媒体，部分服务器可以直连Tor网站(.onion)而不需要额外的Tor Browser。<br>
+提供日本、美国、荷兰三国总共多达数十个免费VPN服务器，无流量上限，但是速度不稳定且不支持P2P。<br>
+推荐指数 8分。</p>
+<p>官网 https://protonvpn.com</p>
+<p>来自koreyoshi_re补充：proton 的 vpn 我只买过一个月，用起来中规中矩，mac 的 app 甚至不支持退出登陆（当时）。而他们的 email 服务极其恶心，一旦他们认为你“违反TOS”，就会强制停用你的邮箱，不允许你导出邮件，也不允许临时恢复 24 小时来改绑。试想一下你的重要事务都留的 proton 邮箱会怎么样，这种公司推出的 vpn 建议慎用。</p>
+<p>来自本博客博主补充：查询“protonmail banned users”相关事件，确有此类情况发生。用户反馈未经通知并禁用账户，但反馈后得到解封处理。</p>
+<p>第二档6- 7分 问题不大<br>
+CyberGhost<br>
+总部司法管辖地</p>
+<p>罗马尼亚<br>
+存疑之处</p>
+<p>收购其的母公司Kape Technologies手里已经有Private Internet Access、ExpressVPN、Zenmate、CyberGhost，这是要召唤神龙么？<br>
+可改善之处</p>
+<p>OpenVPN协议无任何流量混淆选项，容易被本地ISP盯上。<br>
+解锁DAZN失败。<br>
+去广告功能不够智能。<br>
+优点</p>
+<p>有为游戏优化的法兰克福、伦敦、纽约、巴黎服务器，低连接延迟，低丢包率。<br>
+长达45天的无条件退款政策。<br>
+世界四大审计行之一的Deloitte在2022年检查了CyberGhost的服务器网络和管理系统，并给无日志政策背书。<br>
+官网对于非必须的cookie可以自主选择是否接收。<br>
+提供免费的Firefox和Chrome（其他基于Chromium的浏览器通过Chrome商店也能安装）代理浏览器扩展。<br>
+推荐指数 7分。玩欧服与美东服游戏，P2P下载都可以考虑。</p>
+<p>官网 https://www.cyberghostvpn.com/</p>
+<p>NordVPN<br>
+总部司法管辖地</p>
+<p>巴拿马<br>
+严重缺陷</p>
+<p>实测Windows客户端登录要通过网页（浏览器是会跟自己的服务器通信的，登录的网页实测含有akamaiedge、google-analytics等第三方tracker，这两者都会让原始IP暴露）。<br>
+笔者不明白为什么NordVPN要如此设计。<br>
+存疑之处</p>
+<p>服务器曾经出现过数据泄露（在升级到全内存运行之前的事）。<br>
+Surfshark公司与NordVPN母公司Nord Security已经合并。<br>
+NordLynx协议没有开源。<br>
+可改善之处</p>
+<p>Linux只有CLI，无GUI。<br>
+端对端加密云端存储NordLocker是闭源的，不如Proton家的开源全家桶来得放心。<br>
+优点</p>
+<p>所有VPN服务器全内存运行，无硬碟。<br>
+无日志运行通过PWC瑞士分公司2019年与2021年两次背书。<br>
+美国Versprite完成深度安全测试并背书。<br>
+稳定解锁流媒体。<br>
+NordLynx协议基于WireGuard非常快，并且通过双重NAT方式解决了原版WireGuard服务器留下IP地址的问题。<br>
+iOS端有整合进应用内的KillSwitch。<br>
+原生支持M1芯片的Mac（那么M2应该也可以）。<br>
+除了支持加密货币支付，还支持线上亚马逊和包括沃尔玛在内的线下商店购买实体激活码刮刮卡。<br>
+StackSocial上有低价的激活码（没有退款政策）。<br>
+推荐指数 7分，不适合有隐私顾虑的Windows用户，但绝对是广大果粉的最优选择，在iOS和Mac表现都是顶级水准。</p>
+<p>官网 https://nordvpn.com</p>
+<p>Hide.me<br>
+总部司法管辖地</p>
+<p>马来西亚<br>
+存疑之处</p>
+<p>总部位于马来西亚（尽管Hide.me官方宣称根据马来西亚法律，他们的VPN服务器可以无日志运行）。<br>
+早在2015年，Hideme官方就宣称自己是最早的通过独立第三方背书的VPN（VyprVPN是2018年），但背书者为自然人个人（Defense Code Ltd的创办人和总裁Leon Juranic），且未公开详细报告。 可改善之处<br>
+只有Linux的CLI客户端在Github开源，且Linux端设置比较复杂，无直观的GUI。<br>
+速度稍慢。<br>
+优点</p>
+<p>付费服务器能解锁很多流媒体。<br>
+Windows和Mac客户端支持SoftEther协议。<br>
+所有VPN服务器全内存运行，无硬盘（通过与他们的客服联系后确认）。<br>
+支持门罗币支付。<br>
+IPV6支持。<br>
+提供数个静态IP的VPN服务器。<br>
+Stealth Guard中的Bind Internet to VPN就是永久KillSwitch功能，即使客户端关闭，KillSwitch依然在工作。<br>
+提供8个地点的免费VPN服务器，免费用户同样享受24/7真人客服实时对话服务，但每月限制10GB流量。实际上新下载Windows客户端直接免费送7天高级服务器使用权无流量上限，而且不需要提供任何信息，包括邮箱。<br>
+提供免费的Firefox和Chrome（其他基于Chromium的浏览器通过Chrome商店也能安装）代理浏览器扩展。<br>
+推荐指数 7分。</p>
+<p>官网 https://hide.me/</p>
+<p>PureVPN<br>
+总部司法管辖地</p>
+<p>英属维尔京群岛（曾经香港特别行政区）<br>
+存疑之处</p>
+<p>曾经向执法部门出卖过用户（但从技术角度来看不是提供了连接内容日志，而是用户自己已经暴露了足够多的信息，criminals are cowards）。<br>
+可改善之处</p>
+<p>端口转发功能要额外加一点点钱。 优点<br>
+Windows和Android的客户端有应用拆分隧道，可以选择部分应用不走VPN。<br>
+便宜的独享IP地址价格。<br>
+在出卖用户事件几年后，PureVPN决定让公众信服，业内率先采取“连续背书”模式，在世界四大会计师行之一的英国KPMG已经背书两次前提下，邀请KPMG任何时候可以不请自来额外做突击检查。<br>
+推荐指数 7分。</p>
+<p>官网 https://purevpn.com</p>
+<p>Windscribe<br>
+总部司法管辖地</p>
+<p>加拿大<br>
+存疑之处</p>
+<p>官方在App的news feed栏里下作地骑脸嘲讽Kape Technologies，发布愚人节玩笑——Windscribe改名为牛屎VPN，被大大大大大企业Gape Technologies以高高高高高价收购。<br>
+无日志政策尚未有独立的第三方背书。<br>
+2021年乌克兰警方物理带走服务器做调查，但Windscribe宣称没有流量被监控。此后Windscribe开始“”事后诸葛亮“”式的安全更新，并准备升级成去硬盘服务器（只运行在内存上）。<br>
+新账号如果通过公共代理或VPN的IP地址注册，需要联系客服解锁才能完成支付，否则是永远的免费账号。<br>
+可改善之处</p>
+<p>3天无条件退款政策。<br>
+无24/7在线真人客服，官网只有个机器人，与客服联系需要通过邮件或Reddit。<br>
+App在Github开源，但仅限Windows/MacOS/Linux桌面端。<br>
+一年里仅有少数几轮优惠，平日年付价格高达69美元，优惠期是29美元。<br>
+部分服务器禁止P2P（但不是很大的问题）。<br>
+SmartDNS功能要额外加钱。<br>
+优点</p>
+<p>App的API有多个备用线路。<br>
+不想在无折扣期间年付可以自定义两到三个服务器国家和地区按月订购，无限流量每月1美元，每一个国家和地区每月1美元。<br>
+无限台同时登录设备。<br>
+可加钱96美元/年购买共享的家宽IP段固定IP，享受隐私的同时还能有家用IP带来的便利。<br>
+拆分隧道可以添加应用、IP地址或者域名。<br>
+近乎完美的流媒体支持。<br>
+免费账号有多达11个国家和地区的超多个服务器地点可供选择且不限速（对，付费用户专享的服务器地点并不占总数中的大多数），且具备DNS拦截恶意软件功能，但每个月流量限制10GB，偶尔会有coupon增加几十GB的免费流量，免费服务器解锁流媒体性能也良好，我用Windscribe免费服务器解锁成功了F1 Pro。<br>
+唯一的带KillSwitch和修改浏览器时区、语言与IP地址所在地一致功能的浏览器代理插件。<br>
+StackSocial上有低价的激活码（没有退款政策）。<br>
+本博客博主补充：Windscribe在移动端有着比较好的中文（其它多语言）支持，但开源的桌面端仅有英文支持。白名单需要区网页进行设置，桌面端亦有隧道分离功能。</p>
+<p>推荐指数 7分。</p>
+<p>官网 https://windscribe.com/</p>
+<p>OVPN<br>
+总部司法管辖地</p>
+<p>瑞典<br>
+可改善之处</p>
+<p>只有10天无条件退款政策。<br>
+桌面端无拦截广告功能。<br>
+OpenVPN协议无任何混淆选项，容易被本地ISP识别。<br>
+远距离的VPN服务器速度下降明显。<br>
+无24/7在线的真人客服。<br>
+优点</p>
+<p>法庭“背书”过的无日志，甚至有律师费或诉讼费用支出。<br>
+对收到各种数据请求情况透明。<br>
+邮箱不是必须要填写的。<br>
+支持比特币、以太坊和门罗币支付。<br>
+所有VPN服务器均为自助搭建托管（co-located），全内存运行，无硬盘，支持IPV6。<br>
+WireGuard服务器自动删除三分钟无密钥交换的对等节点的信息，最小化信息留存可能。<br>
+半年付与年付都有免费附加的双重VPN功能。<br>
+推荐指数 7分，不适合需求速度的用户。</p>
+<p>官网 https://www.ovpn.com</p>
+<p>WeVPN<br>
+总部司法管辖地</p>
+<p>英属维尔京群岛<br>
+存疑之处</p>
+<p>2020年才开始运营的业界萌新。<br>
+可改善之处</p>
+<p>加密货币支付无法退款。<br>
+这么雄心壮志的话，干脆把客户端开源了吧。<br>
+独立第三方的背书目前还没有。<br>
+优点</p>
+<p>路线图十分明确，一步一个脚印向前进，功能越来越强大，看起来充满雄心，也能给用户信心。<br>
+在完全内存运行基础上通过LUKS加密进一步保障VPN服务器安全，服务器自动化管理。<br>
+支持门罗币支付。<br>
+提供免费的加密公共DNS服务。<br>
+StackSocial上有低价的激活码（没有退款政策）。<br>
+推荐指数 7分，前途无量。</p>
+<p>官网 https://wevpn.com</p>
+<p>PrivateVPN<br>
+总部司法管辖地</p>
+<p>瑞典<br>
+存疑之处</p>
+<p>并未选择仅内存运转的服务器。<br>
+可改善之处</p>
+<p>长期订阅只有72美元三年付选项（尽管官方美化成12+24个月）。<br>
+无原生Linux支持。<br>
+偶有掉速。<br>
+优点</p>
+<p>官网对于非必须的cookie可以自主选择是否接收。<br>
+在KillSwitch基础上增加了应用卫士，VPN意外断联时候自动关闭选择的App。<br>
+优秀的流媒体支持，解锁超过30个Netflix区库。<br>
+执法机关多次“背书”的无日志记录。<br>
+推荐指数 7分。</p>
+<p>官网 https://privatevpn.com/</p>
+<p>Mullvad<br>
+总部司法管辖地</p>
+<p>瑞典<br>
+存疑之处</p>
+<p>无密码无邮箱模式，即只有用户数字号码，尽管隐私极佳，但账号被盗将变成与盗号者“共用5个设备槽”的情况。<br>
+可改善之处</p>
+<p>尚未实现全服无硬盘，但哪些服务器使用硬盘，哪些服务器是租用在App里可查看。<br>
+最近一次独立第三方德国Cure53背书已经是2020年了。<br>
+双重VPN仅限WireGuard协议，且iOS与Android App没有双重VPN。<br>
+优点</p>
+<p>所有系统（Windows, MacOS, Linux, Android, iOS）客户端完全开源。<br>
+最佳的Linux VPN GUI客户端。Windows/MacOS与Linux拥有真正的随系统启动与融合进系统底层防火墙的永久KillSwitch，其中Windows使用WFP，Linux使用nftables， MacOS使用PF。我做过Wireshark嗅探Linux虚拟机网络流量的测试，结合启动阶段的Mullvad Daemon提示，推断完全不会暴露虚拟机的通过NAT共享自宿主机的IP地址。<br>
+独立的原生Linux Arm客户端，最佳的Raspberry Pi支持。<br>
+月付与年付价格都一样，平日与促销时期价格都一样，5欧元/月，账号可以用完就扔，加密货币（比特币、比特币现金与门罗币）支付每月优惠至4.5欧元且不通过中介。<br>
+在一些合作的线上和线下商店出售实体激活码刮刮卡。<br>
+运营主体Mullvad VPN AB的母公司Amagicom AB为一家独立、私有的瑞典小公司，还在做开源固件（2022年9月19日-21日在德国波鸿举办的开源固件会议主办方为谷歌、Mullvad与9elements），和类似Yubikey的硬件安全验证器Tillitis TKey，并且做到了硬件开源。<br>
+业界第一个发现Android VPN有跟iOS VPN类似的VPN隧道外流量的问题，并积极向谷歌报告。<br>
+完全自由选择入口和出口服务器的双重VPN。<br>
+支持IPV6。<br>
+OpenVPN有Shadowsocks和V2Ray两种混淆网桥。<br>
+WireGuard也有UDP over TCP混淆法，并在服务器端每隔180秒删除一次无握手反馈的对等节点信息。<br>
+提供免费公共DNS服务Mullvad DNS。<br>
+推荐指数 7分，不适合小白，不适合看流媒体，但经常使用Linux系统工作的码农和隐私技术宅狂喜。</p>
+<p>官网 https://mullvad.net</p>
+<p>来自koreyoshi_re补充：速度不错，标称1G带宽实际测速都能500M+，标称10G实际都能2G+；支持 tor 注册，xmr 加密货币付款，全程无需任何身份信息；可以导出为标准 wireguard 文件，且真的不限流量不限速；但是他们有好多出口 ip 都被中国墙了，挂全局 vpb访问中国网站时，可能打不开；有特殊加成的地区（土耳其，阿根廷，印度，台湾）他们基本都没有。</p>
+<p>Atlas<br>
+总部司法管辖地</p>
+<p>美国<br>
+严重缺陷</p>
+<p>Android客户端不直接提供apk，只有通过Google Play下载。<br>
+存疑之处</p>
+<p>2019年才娓娓道来的业界萌新，并未久经沙场。<br>
+已经被NordVPN母公司Nord Security收购。<br>
+VPN服务器采用全盘加密而非仅内存模式。<br>
+KillSwitch启动时候的自动重连有些问题。<br>
+可改善之处</p>
+<p>Linux客户端只有.deb的CLI，无GUI，更无法兼容Red Hat系列系统（例如Fedora，CentOS）。<br>
+Windows客户端偶发卡顿<br>
+没有类似白名单的分流功能<br>
+优点</p>
+<p>独有的SafeSwap技术像代理一样能在不同的在线会话跳转不同IP地址，进一步保障隐私和规避广告商的追踪。<br>
+付费服务器稳定解锁流媒体、无同时登录设备数限制<br>
+各个客户端UI统一、界面设计清晰美观<br>
+所有系统的app均有荷兰阿姆斯特丹、美国洛杉矶美国纽约三个地点的免费VPN服务器，且支持P2P，但每月限制5GB流量。<br>
+StackSocial上有低价的激活码（没有退款政策）。<br>
+推荐指数 7分。</p>
+<p>官网 https://atlasvpn.com/</p>
+<p>PrivadoVPN<br>
+总部司法管辖地</p>
+<p>瑞士<br>
+可改善之处</p>
+<p>VPN网络规模较小，服务器和IP地址偏少。<br>
+缺乏拦截广告等附加功能。<br>
+付费用户无法解锁DAZN和日区Netflix。<br>
+优点</p>
+<p>提供阿根廷布宜诺斯艾利斯，巴西圣保罗，加拿大蒙特利尔，法国巴黎，德国法兰克福，墨西哥墨西哥城，荷兰阿姆斯特丹，瑞士苏黎世，英国伦敦，美国洛杉矶、迈阿密、纽约、华盛顿共10国14城市的免费服务器，每月10GB流量限制，而免费服务器也可以随缘解锁美区Netflix。<br>
+KillSwitch直接就是永久的（相当于断网的防火墙），即使没有连接VPN时也不会暴露初始IP地址。<br>
+推荐指数 7分。</p>
+<p>官网 https://privadovpn.com</p>
+<p>AzireVPN<br>
+总部司法管辖地</p>
+<p>瑞典<br>
+严重缺陷</p>
+<p>Android客户端不直接提供apk，只有通过Google Play下载。<br>
+可改善之处</p>
+<p>无原生Linux客户端，需要下载WireGuard组件。<br>
+加密货币支付无退款。<br>
+无法解锁Netflix等。<br>
+优点</p>
+<p>IPV6支持。<br>
+VPN服务器来自永久购买而非租用，无硬盘仅通过内存运行，并物理屏蔽了USB、VGA和串行接口。<br>
+推荐指数 7分。不适合用BlissOS、LinageOS等去谷歌商店第三方开源安卓系统的使用者。</p>
+<p>官网 https://www.azirevpn.com/</p>
+<p>IVPN<br>
+总部司法管辖地</p>
+<p>直布罗陀<br>
+存疑之处</p>
+<p>无密码无邮箱的纯数字账号，被盗号将无法重新取得控制。<br>
+“同时在线设备数”算的是未从IVPN的中心验证系统登出数而不是实际连线数，意味着两台设备直接关机的话第三台设备登录时候必须先顶号。 可改善之处<br>
+价格比市场定位相似的友商Mullvad贵很多，标准套餐月付6美元，年付60美元，却只允许两台设备同时登录，高级套餐终于支持自由的双重VPN和端口转发，价格却是年付100美元且只允许7台设备同时登录，因为美元上涨以欧元结算的Mullvad已经显得更划算了。 优点<br>
+隐私保护超好，所有系统的客户端全部开源，德国Cure53作为独立第三方使用检验了IVPN客户端、Daemon安全性并背书，早先Cure53也证明了IVPN服务器不记录日志。。<br>
+可通过本地代理做OpenVPN TCP的前置网桥（与Private Internet Access类似）。<br>
+通过特殊技术让服务器的WireGuard避免公网IP地址残留。<br>
+IVPN团队规模小而独立，资助EFF等机构，还是Tor的某出口节点机主。<br>
+部分服务器支持IPV6。<br>
+桌面端的KillSwitch在系统加载时候就已经生效，意味着不会有哪怕一丁点时间的IP地址外泄，支持真永久KillSwitch，哪怕登录之前也可以选择封锁网络连接。<br>
+支持门罗币和比特币、比特币闪电链支付，有独立的BTCPay服务器。<br>
+推荐指数 6分。是Mullvad的下位替代品。</p>
+<p>官网 https://ivpn.net</p>
+<p>AdGuard VPN<br>
+总部司法管辖地</p>
+<p>塞浦路斯<br>
+存疑之处</p>
+<p>AdGuard最早创立于莫斯科（希望是一群像杜叔叔一样热爱自由的人）。<br>
+Android端KillSwitch依赖系统自带的。<br>
+没有独立第三方背书。<br>
+可改善之处</p>
+<p>服务器规模小，没有新西兰服务器。<br>
+不支持加密货币支付。<br>
+无24/7在线真人客服。<br>
+作为以保护隐私见长的公司，没有Linux客户端。<br>
+优点</p>
+<p>新人可以在12个地点的服务器免费体验5GB流量，初始3GB，确认邮箱和增加另一台设备各增加1GB流量。<br>
+DNS选项丰富，除了AdGuard VPN内置DNS外，还可以选择能过滤广告和追踪器或不过滤任何信息的的AdGuard DNS，额外增加去成人内容激活安全搜索与安全模式的家庭保护型AdGuard DNS，谷歌DNS，Cloudflare DNS家族，Open DNS家族， Quad9， 或者自主添加DNS。<br>
+可以自主把特定域名、IP地址或者应用排除在VPN隧道外。<br>
+母服务AdGuard团队声誉良好。<br>
+独有协议在掩盖VPN流量特征同时保持高速度。<br>
+StackSocial上有低价的激活码（没有退款政策）。<br>
+来自本博客博主补充：AdGuard VPN可以和AdGuard在移动端上共同使用；VPN隧道使用良好；团队反应比较迅速</p>
+<p>推荐指数 6分。</p>
+<p>官网 https://adguard-vpn.com/</p>
+<p>IPVanish<br>
+总部司法管辖地</p>
+<p>美国<br>
+存疑之处</p>
+<p>曾经向法庭或警方出卖过用户的上网记录（虽然该罪犯是罪有应得）。<br>
+母公司Ziff Davis集团太过于家大业大。<br>
+可改善之处</p>
+<p>不支持加密货币支付，只有信用卡和PayPal可选。<br>
+无原生Linux客户端。<br>
+优点</p>
+<p>拥有自己独立的骨干网。<br>
+同时使用设备数量无限制。<br>
+2022年美国Leviathan Security Group作为第三方，独立检查了IPVanish的服务器配置并给无日志政策背书。<br>
+推荐指数 6分。</p>
+<p>官网 https://ipvanish.com</p>
+<p>AirVPN<br>
+总部司法管辖地</p>
+<p>意大利<br>
+存疑之处</p>
+<p>尽管隐私政策大饼无比美好，但尚未有第三方独立背书证明确实无日志。<br>
+可改善之处</p>
+<p>没有iOS客户端。<br>
+客户端Eddie在Linux Debian/Ubuntu/Fedora等系统都不能开机自动启动，需要先输入系统管理员密码。<br>
+作为偏向隐私与数据安全的VPN，DNS不带拦截广告和恶意软件功能。<br>
+一年只有万圣节、黑五和圣诞期间有优惠。<br>
+优点</p>
+<p>客户端Eddie在所有支持系统完全开源，可调试选项丰富，业界少有的原生Arch Linux客户端，可安装也可用TARGZ、AppImage和Mono的便携版，除了GUI客户端Eddie外还有融入系统底层的完全开源CLI客户端AirVPN Suite。<br>
+真正的永久Killswitch，即使Daemon挂了，原始IP地址也无法对外通信。<br>
+所有VPN服务器全内存运行，无硬盘，支持IPV6。<br>
+可以不填写邮箱或者用10分钟的临时邮箱注册，通过用户名和密码就能登录与进用户后台。<br>
+付款信息与用户信息分开，加密货币支付更是有独立的接收地址而不是通过CoinGate之类的第三方中介，支持门罗币支付。<br>
+官网没有追踪用户的cookie。<br>
+由律师、活动家、白客等创立和运营，注册地佩鲁贾是个小城，为维基解密捐过款。<br>
+推荐指数 6分，不适合小白和流媒体狂人，适合大神用户。</p>
+<p>官网 https://airvpn.org</p>
+<p>Ivacy<br>
+总部司法管辖地</p>
+<p>新加坡<br>
+存疑之处</p>
+<p>总部位于新加坡（可怀疑的理由与马来西亚一样）。<br>
+可改善之处</p>
+<p>OpenVPN没有混淆能力。<br>
+优点</p>
+<p>可邮件联系客服批发购买服务。<br>
+虽然Linux系统只有CLI客户端，但少有的支持Arch Linux，当然还支持Debian，Ubuntu，Fdeora，CentOS和Linux Mint。<br>
+完善的流媒体解锁支持，官方承诺解锁16个主要的Netflix区库等流媒体服务。<br>
+仍在打折期的黑五折扣5年60美元赠送1个月来自西班牙的2TB开源端对端加密云盘服务Internxt，并且，可！以！白！嫖！与客服聊天后得知，即使redeem了赠送的Internxt激活码，VPN服务依然可以30天内无条件退款，相当于白嫖一个月VPN+云端硬碟。<br>
+StackSocial上有低价的激活码（没有退款政策）。<br>
+推荐指数 6分。</p>
+<p>官网 https://www.ivacy.com/</p>
+<p>ZoogVPN<br>
+总部司法管辖地</p>
+<p>希腊<br>
+存疑之处</p>
+<p>无日志政策无第三方独立背书。<br>
+可改善之处</p>
+<p>Android没有应用内嵌KillSwitch，需借助系统设置。<br>
+只有7天无条件退款。<br>
+优点</p>
+<p>每月10GB免费流量，有7台服务器可供使用，其中德国杜塞尔多夫2号服务器、荷兰阿姆斯特丹1号服务器、德国测试1号服务器与新加坡测试1号服务器支持P2P，德国杜塞尔多夫2号服务器、新加坡2号服务器、德国测试1号服务器和新加坡测试1号服务器带抗封锁技术ZoogShadow，德国测试1号服务器和新加坡测试1号服务器甚至还带有流媒体优化技术ZoogPlay。<br>
+推荐指数 6分。</p>
+<p>官网 https://zoogvpn.com/</p>
+<p>CactusVPN<br>
+总部司法管辖地</p>
+<p>摩尔多瓦<br>
+存疑之处</p>
+<p>无日志政策无第三方独立背书。<br>
+可改善之处</p>
+<p>流媒体解锁能力差。<br>
+P2P下载仅限少数几个服务器。<br>
+无原生Linux支持。<br>
+优点</p>
+<p>无同时登录设备数限制。<br>
+多种流量混淆技术。<br>
+推荐指数 6分。</p>
+<p>官网 https://www.cactusvpn.com/</p>
+<p>VPNArena<br>
+总部司法管辖地</p>
+<p>保加利亚<br>
+存疑之处</p>
+<p>全盘加密而非运行在内存上。<br>
+可改善之处</p>
+<p>Linux仅有CLI。<br>
+仅有极少数服务器支持混淆协议Stunnel。<br>
+优点</p>
+<p>美国任意州的独享IP只要额外加20美元/年，不过有月度流量限制（500GB到2000GB不等）。<br>
+推荐指数 6分。</p>
+<p>官网 https://vpnarea.com/</p>
+<p>VPN.AC<br>
+总部司法管辖地</p>
+<p>罗马尼亚<br>
+存疑之处</p>
+<p>Android客户端无应用内KillSwitch，需要调用系统的Always-on VPN功能。<br>
+Linux客户端两年未更新了，仅支持Debian/Ubuntu及分支。<br>
+一部分日志会保留到当次VPN会话结束。<br>
+可改善之处</p>
+<p>无条件退款政策仅7天。<br>
+无24/7在线真人客服，与客服联系有工单（可转发为邮件）和端对端加密通讯软件Wire两种方式。<br>
+双重VPN只有有限的预设路径。<br>
+年付价格55.1美元，两年付价格85.5美元，对比同档次竞品偏贵，没有黑五特价。<br>
+只能解锁部分流媒体（可解锁Netflix）。<br>
+经实测发现即使连接美国VPN服务器，提供DNS的服务器依然在加拿大，可能会增加延迟。 优点<br>
+母公司为一家独立的罗马尼亚小公司Netsec Interactive Solutions，同时在做安全硬件存储产品和渗透测试的业务。<br>
+推荐指数 6分。</p>
+<p>官网 https://vpn.ac/</p>
+<p>第三档 5分 中规中矩<br>
+TunnelBear<br>
+总部司法管辖地</p>
+<p>加拿大<br>
+严重缺陷</p>
+<p>不允许P2P下载！<br>
+客户端程序崩溃时KillSwitch也会失效。<br>
+可改善之处</p>
+<p>缺乏实时在线客服。<br>
+无原生Linux支持。<br>
+只有48个VPN服务器国家和地区。<br>
+无法解锁DAZN，Netflix只能解锁英国和美国区。<br>
+只有每月500MB流量限制的免费账号有什么用呢？推特夸一下也只能再增加1GB。<br>
+优点</p>
+<p>聘请Cure53进行年度安全测试与背书。 -Android和iOS支持应用拆分隧道，可选择某些应用不过VPN。<br>
+推荐指数 5分。</p>
+<p>官网 https://www.tunnelbear.com/</p>
+<p>Perfect Privacy<br>
+总部司法管辖地</p>
+<p>瑞士<br>
+存疑之处</p>
+<p>凭什么卖得比ExpressVPN还贵？（年付119.99美元，两年付214.95美元）<br>
+无理由退款只有7天。<br>
+无原生iOS客户端。<br>
+解锁流媒体的水平完全对不起售价。<br>
+优点</p>
+<p>荷兰洛特丹服务器通过荷兰警方“考验”。<br>
+经常更新的透明报告。<br>
+支持IPV6和多达最多四跳的多重VPN，拦截广告和钓鱼网站技术出众，有基于神经网络的智能连接优化。<br>
+所有VPN服务器的socks5和http代理功能可直接解析洋葱（.onion）地址。<br>
+推荐指数 5分。以上优点有的只是花里胡哨。</p>
+<p>官网 https://www.perfect-privacy.com/</p>
+<p>StrongVPN<br>
+总部司法管辖地</p>
+<p>美国<br>
+存疑之处</p>
+<p>运营主体Strong Technology, LLC的母公司Ziff Davis集团过于家大业大。<br>
+可改善之处</p>
+<p>无原生Linux客户端。<br>
+推荐指数 5分。</p>
+<p>官网 https://strongvpn.com/</p>
+<p>TorGuard<br>
+总部司法管辖地 -美国</p>
+<p>存疑之处</p>
+<p>Android没有应用内KillSwitch，需要调用系统的KillSwitch和block connections without VPN选项。<br>
+官网封禁了来自一些其他VPN的IP的浏览，不知道是否是误杀。就算能浏览的IP也要先过一遍Cloudflare的保护。<br>
+可改善之处</p>
+<p>加密邮箱服务Private-Email价格巨贵无比。<br>
+只有七天退款，且前提条件是未购买独享IP的普通套餐订阅。<br>
+解锁流媒体的服务器需要额外加钱买独享IP地址。<br>
+优点</p>
+<p>这个名字会让人联想到Tor Project，但实际上两者并没有直接关联。官方解释是TorGuard的tor字眼代表torrenting，以表达该VPN对于安全使用bittorrent的支持，而TorGuard官方亦有捐助Tor Project。<br>
+少有的原生客户端支持ArchLinux，甚至Arm Arch。<br>
+全新业务，提供业内首家基于WireGuard的自助管理远程服务器后台，可连接居家设备的云端VPN服务（每月限制250GB流量）。<br>
+推荐指数 5分。希望云端VPN能做成独门绝技。</p>
+<p>官网 https://torguard.net</p>
+<p>Trust.Zone<br>
+总部司法管辖地</p>
+<p>塞舌尔<br>
+可改善之处</p>
+<p>Mac上速度偏慢。<br>
+支持协议太少。<br>
+退款仅10天且前提条件是流量总消耗未超过1GB。<br>
+优点</p>
+<p>部分服务器是静态IP。<br>
+提供3天1GB免费试用。<br>
+推荐指数 5分。</p>
+<p>官网 https://trust.zone/</p>
+<p>HideMyAss<br>
+总部司法管辖地</p>
+<p>英国<br>
+存疑之处</p>
+<p>2011年向警方提供过用户日志（Lulzsec事件）导致HideMyAss口碑不佳。<br>
+可改善之处</p>
+<p>OpenVPN协议无任何伪装。<br>
+无原生Linux客户端。<br>
+优点</p>
+<p>被Avast收购，运营已经换得差不多了，跟当年的HideMyAss两波人了，对过去的事情态度很诚恳，也做了独立第三方，美国VerSprite的无日志背书。<br>
+官网提供免费在线页面级代理。<br>
+推荐指数 5分。 官网 https://www.hidemyass.com/</p>
+<p>第四档 4分 问题较多<br>
+KeepSolid VPN Unlimited<br>
+总部司法管辖地</p>
+<p>美国<br>
+严重缺陷</p>
+<p>原始IP地址会保留到当次VPN会话结束。<br>
+存疑之处</p>
+<p>提供99.99美元终身套餐，但非终身套餐价格都不划算。<br>
+可改善之处</p>
+<p>只有三个服务器允许P2P。<br>
+推荐指数 4分。</p>
+<p>官网 https://www.vpnunlimited.com/</p>
+<p>ZenMate<br>
+总部司法管辖地</p>
+<p>德国<br>
+严重缺陷</p>
+<p>无法自主选择服务器城市。<br>
+存疑之处</p>
+<p>收购其的母公司Kape Technologies手里已经有Private Internet Access、ExpressVPN、Zenmate、CyberGhost，这是要召唤神龙么？<br>
+可改善之处</p>
+<p>付款方式只有信用卡和PayPal。<br>
+Mac和iOS只有IKEv2协议。<br>
+推荐指数 4分。</p>
+<p>官网 https://zenmate.com/</p>
+<p>第五档 2-3分 不要购买<br>
+MozillaVPN<br>
+总部司法管辖地</p>
+<p>美国<br>
+智商税，用的服务器都是Mullvad的，还卖得比Mullvad贵，而且不支持加密货币支付！</p>
+<p>推荐指数 3分（3分是给Mozilla面子）。</p>
+<p>Whoer VPN<br>
+总部司法管辖地</p>
+<p>塞浦路斯<br>
+存疑之处</p>
+<p>官方社交账号有VK，网站内第三方tracker有Yandex，令人怀疑运营团队是否与俄罗斯有资金关联。<br>
+30天“有条件”退款<br>
+可改善之处</p>
+<p>OpenVPN协议无任何伪装。<br>
+无原生Linux支持。<br>
+位于荷兰的唯一免费服务器速度基本属于不可用状态。<br>
+优点</p>
+<p>支持双重VPN。<br>
+whoer.net是一个出色的系统与浏览器user agent测试网站。<br>
+推荐指数 3分。</p>
+<p>官网 https://whoer.net</p>
+<p>Hotspot Shield<br>
+总部司法管辖地</p>
+<p>美国<br>
+严重缺陷</p>
+<p>记录一些重要的连接日志。<br>
+存疑之处</p>
+<p>母公司Aura就因为拥有几家对隐私极不友好的VPN而臭名昭著，例如Betternet和TouchVPN。<br>
+优点</p>
+<p>提供不限速不限流量的免费代理浏览器扩展，虽然服务器极为有限。（但友商家连免费公共代理都是没有日志的！）<br>
+基于TLS的Catapult Hydra专有协议。<br>
+StackSocial上有低价的激活码（没有退款政策）。<br>
+推荐指数 2分。</p>
+<p>官网 https://www.hotspotshield.com</p>
+<p>Astrill<br>
+总部司法管辖地</p>
+<p>塞舌尔（曾经澳大利亚）<br>
+现在的售价下缺点能掩盖一切优点！</p>
+<p>推荐指数 2分，奇贵无比，完全不值这个价。</p>
+<p>官网 https://www.astrill.com/</p>
+<p>SlickVPN<br>
+总部司法管辖地</p>
+<p>美国<br>
+存疑之处</p>
+<p>只有Windows和Mac客户端。<br>
+StackSocial上还有超低价终身激活码，有智商税嫌疑。<br>
+推荐指数 2分。</p>
+<p>官网 https://www.slickvpn.com/</p>
+<p>第六档 0分 碰都别碰<br>
+TouchVPN<br>
+总部司法管辖地</p>
+<p>美国<br>
+直接无视！ 推荐指数0分。</p>
+<p>Hola VPN<br>
+总部司法管辖地</p>
+<p>以色列<br>
+绝对不要去碰！ 推荐指数0分。</p>
+<p>Betternet<br>
+总部司法管辖地</p>
+<p>加拿大<br>
+根本不要去考量！ 推荐指数0分。</p>
+<p>已经死掉或被收购后不再独立运作的VPN<br>
+纪念的同时不要被山寨的名字骗了</p>
+<p>TigerVPN<br>
+总部司法管辖地</p>
+<p>斯洛伐克<br>
+因为Covid19带来的严重影响，从2022年7月15日10：00UTC时间起永久停止服务了（悲）。</p>
+<p>BlackVPN<br>
+总部司法管辖地</p>
+<p>香港特别行政区<br>
+不知何原因停运了，2018年还好好的。</p>
+<p>IbVPN（Invisible Browsing VPN）<br>
+总部司法管辖地</p>
+<p>罗马尼亚<br>
+被StrongVPN收购了，已经成为了StrongVPN的一部分。</p>
+<p>SaferVPN<br>
+总部司法管辖地 以色列</p>
+<p>被StrongVPN收购了，已经成为了StrongVPN的一部分。</p>
+<p>冤大头懒人专用VPN路由器（无需复杂手动设置，但价格很贵）<br>
+VILFO路由器 原生支持VPN部分列表： AzireVPN, ExpressVPN, HMA(HideMyAss), Hideme, IPVanish, Ivacy, IVPN, Mullvad, NordVPN, OVPN, Perfect Privacy, Private Internet Access, PrivateVPN, ProtonVPN, PureVPN, Surfshark VPN, VPNArena, Websecuritas, WeVPN, Windscribe 支持协议： OpenVPN, WireGuard 功能：KillSwitch，DNS保护，家长控制，基于域名、IP地址、端口的多种拆分隧道模式，（即将实现）物联网设备隔离…… 速度：最高千兆WireGuard，最高500兆OpenVPN。</p>
+<p>FlashRouter路由器 FlashRouter Privacy App固件支持VPN部分列表： AirVPN, AnonVPN, Astrill, Azire VPN, CyberGhost, EarthVPN, ExpressVPN, Hide Me, HMA, Hotspot Shield, IPVanish, IronSocket, Ivacy, IVPN, Mullvad, NordVPN, Perfect Privacy, Private VPN, Private Internet Access, ProtonVPN, PureVPN, SlickVPN, StrongVPN, Surfshark, Torguard, Trust.Zone, TunnelBear, VPN.ac, VPNArea, Keepsolid VPN Unlimited, VyprVPN, Windscribe, Zenmate 支持协议： OpenVPN 功能：内建IP地址查询，启动即自动连接，全局KillSwitch，分设备KillSwitch，分设备绕过VPN，域名白名单与黑名单，服务器自动更新……</p>
+<p>Sabai固件路由器 原生支持StrongVPN。</p>
+<p>DD-WRT固件和Tomato固件路由器手工设置Kill-Switch教程<br>
+DD-WRT WireGuard 点击setup - &gt; Tunnels，开启Kill Switch，然后Save- &gt;Apply Settings，重启路由。</p>
+<p>DD-WRT OpenVPN Administration - &gt; Commands 输入命令行 iptables -I FORWARD -i br0 -o tun0 -j ACCEPT iptables -I FORWARD -i tun0 -o br -j ACCEPT iptables -I FORWARD -i br0 -o $(nvram get wan_iface) -j DROP iptables -I INPUT -i tun0 -j REJECT iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE 点击Save Firewall然后重启。</p>
+<p>Tomato Administration -&gt; Scripts &gt; Firewall 输入命令行 iptables -I FORWARD -i br0 -o tun0 -j ACCEPT iptables -I FORWARD -i tun0 -o br -j ACCEPT iptables -I FORWARD -i br0 -o $(nvram get wan_iface) -j DROP iptables -I INPUT -i tun0 -j REJECT iptables -t nat -A POSTROUTING -o tun0 -j MASQUERADE 保存规则然后重启。</p>
+<p>iOS如何避免苹果服务器绕过VPN<br>
+连接VPN服务器； 打开飞行模式； 关闭飞行模式。</p>
+<p>Android如何避免VPN外流量泄漏<br>
+原版目前无法解决，谷歌的回应是完全躺平的。别用原版Android了，用GrapheneOS之类可禁用连接情况检查的第三方Android吧。（悲）</p>
+<p>MacOS无原生客户端该如何手动安全连接OpenVPN<br>
+下载自由软件Tunnelblick 。软件可设置KillSwitch，也可以预设多个VPN服务器的证书文件。</p>
+<p>Windows手动连接VPN该如何确保安全连线<br>
+下载自由软件killswitch-windows 。连接VPN。此时以管理员身份运行killswitch-windows。VPN虚拟网卡一般情况下都是序号0。输入0，回车。完毕。</p>
+<p>Linux下自主设置OpenVPN KillSwitch，以Debian/Ubuntu为例<br>
+输入命令行 sudo apt install ufw -y 安装UFW防火墙。</p>
+<p>Ubuntu和分支系统可能预装了UFW。 sudo systemctl start ufw 启动UFW。</p>
+<p>sudo ufw enable 激活UFW。 当系统问Proceed with operation (y|n)?输入Y，回车。 sudo ufw allow ssh 添加规则允许SSH连线。</p>
+<p>sudo ufw default deny outgoing sudo ufw default deny incoming 此时默认规则是禁止对内对外的除了特殊规则的一切流量。</p>
+<p>sudo head /etc/xxx.ovpn（具体的OpenVPN证书文件），取得服务器IP地址和端口号，以及UDP还是TCP。需要单IP地址做gateway的服务器。 sudo ufw allow out to xxx.xxx.xxx.xxx port xxxx proto udp/tcp 填写IP地址和端口，UCP或TCP，让他们成为允许流入流出的特殊规则。 sudo ufw allow out on tun0 from any to any</p>
+<p>sudo ufw allow in on tun0 from any to any 允许OpenVPN的虚拟网卡tun0流量。 sudo mv /root/xxx.ovpn /etc/openvpn/xxx.conf cd /etc/openvpn</p>
+<p>ls 移动证书文件到正确的文件夹位置。 sudo systemctl start openvpn@xxx.service 开启OpenVPN服务组件。 sudo systemctl status openvpn@xxx.service 验证一下OpenVPN是否开启了。 sudo systemctl enable openvpn@xxx.service 自动连接到服务器。</p>
+<p>完工。</p>
+<p>转自https://song.al/vpn</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://build233.github.io/post/Q-h70Df4V/">
+                  <h3 class="post-title">
+                    &#34;只要人人都献出一点爱,世界将变成美好的明天&#34;
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" class="animate__animated animate__fadeIn"></div>
+              
+
+              
+            
+
+          </div>
+        </div>
+      </div>
+
+      
+        <div class="post-toc animate__animated animate__fadeInUp">
+          <span>目录</span>
+          <div class="divider"></div>
+          
+        </div>
+      
+
+    </div>
+
+    <script type="application/javascript">
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://cdn.bootcdn.net/ajax/libs/gitalk/1.6.2/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '796f7dfd8c106b3df9d9',
+        clientSecret: '6dc3315055b08ab99da1bff137b8b391ff1451f0',
+        repo: 'build233.github.io',
+        owner: 'build233',
+        admin: ['build233'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
